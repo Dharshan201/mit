@@ -1,0 +1,730 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ========================================
+   STUNNING MODERN DARK THEME
+   Premium Contact Manager Design
+   ======================================== */
+
+:root {
+    /* Primary Palette - Electric Violet & Cyan */
+    --primary: #7c3aed;
+    --primary-light: #a78bfa;
+    --primary-dark: #5b21b6;
+
+    --accent: #06b6d4;
+    --accent-light: #22d3ee;
+
+    /* Backgrounds */
+    --bg-dark: #0a0a0f;
+    --bg-card: rgba(20, 20, 30, 0.8);
+    --bg-card-hover: rgba(30, 30, 45, 0.9);
+    --bg-input: rgba(255, 255, 255, 0.05);
+
+    /* Text */
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+
+    /* Status Colors */
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+
+    /* Glass Effect */
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+    --gradient-accent: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+    --gradient-dark: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 100%);
+}
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    /* Animated Gradient Background */
+    background-image:
+        radial-gradient(ellipse at 20% 0%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 100%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(236, 72, 153, 0.05) 0%, transparent 70%);
+    background-attachment: fixed;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+ul {
+    list-style: none;
+}
+
+/* ========================================
+   UTILITIES
+   ======================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.text-primary {
+    color: var(--primary-light) !important;
+}
+
+.text-danger {
+    color: var(--danger) !important;
+}
+
+.text-success {
+    color: var(--success) !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* ========================================
+   NAVBAR - Floating Glass Style
+   ======================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: transparent;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar h1 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar h1::before {
+    content: '📇';
+    font-size: 1.5rem;
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar li {
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.navbar li:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+}
+
+.navbar a {
+    color: inherit;
+}
+
+.navbar .fas {
+    margin-right: 0.4rem;
+    color: var(--accent);
+}
+
+/* ========================================
+   LAYOUT - Modern Grid
+   ======================================== */
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 900px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   CARDS - Glassmorphism Design
+   ======================================== */
+
+.card {
+    position: relative;
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+/* Animated Gradient Border on Hover */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: var(--bg-card-hover);
+    border-color: rgba(124, 58, 237, 0.3);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 60px rgba(124, 58, 237, 0.1);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card h2,
+.card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ========================================
+   FORMS - Sleek Inputs
+   ======================================== */
+
+.form-container {
+    max-width: 480px;
+    margin: 3rem auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.3px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+    font-family: inherit;
+    background: rgba(30, 30, 50, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    color: #ffffff !important;
+    transition: all 0.3s ease;
+}
+
+.form-control::placeholder {
+    color: #888888;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(40, 40, 70, 0.95);
+    box-shadow:
+        0 0 0 4px rgba(124, 58, 237, 0.15),
+        0 4px 20px rgba(124, 58, 237, 0.1);
+    color: #ffffff !important;
+}
+
+/* ========================================
+   BUTTONS - Gradient & Glow
+   ======================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.8rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: inherit;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: none;
+    letter-spacing: 0.3px;
+
+    /* Default - Primary Gradient */
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 25px rgba(124, 58, 237, 0.5),
+        0 0 40px rgba(124, 58, 237, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-block {
+    display: flex;
+    width: 100%;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 8px;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+
+.btn-danger:hover {
+    box-shadow:
+        0 8px 25px rgba(239, 68, 68, 0.5),
+        0 0 40px rgba(239, 68, 68, 0.2);
+}
+
+.btn-light {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    box-shadow: none;
+    border: 1px solid var(--glass-border);
+}
+
+.btn-light:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-group {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+/* ========================================
+   BADGES - Pill Style
+   ======================================== */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-radius: 50px;
+    background: rgba(124, 58, 237, 0.2);
+    color: var(--primary-light);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+.badge-primary,
+.badge-professional {
+    background: rgba(6, 182, 212, 0.2);
+    color: var(--accent-light);
+    border-color: rgba(6, 182, 212, 0.3);
+}
+
+.badge-success,
+.badge-personal {
+    background: rgba(236, 72, 153, 0.2);
+    color: #f472b6;
+    border-color: rgba(236, 72, 153, 0.3);
+}
+
+/* ========================================
+   CONTACT ITEMS
+   ======================================== */
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-card h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+.contact-card ul {
+    margin: 0.5rem 0 1rem;
+}
+
+.contact-card li {
+    padding: 0.4rem 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-card li i {
+    color: var(--accent);
+    width: 20px;
+}
+
+/* ========================================
+   RADIO BUTTONS - Custom Style
+   ======================================== */
+
+input[type='radio'] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--text-muted);
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+input[type='radio']:checked {
+    border-color: var(--primary);
+    background: var(--primary);
+}
+
+input[type='radio']:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+}
+
+.card span {
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-right: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.card span:hover {
+    color: var(--text-primary);
+}
+
+/* ========================================
+   AUTH PAGES
+   ======================================== */
+
+.form-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.form-title span {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Stagger animation for contact items */
+.card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* ========================================
+   SCROLLBAR - Custom Style
+   ======================================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-dark);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .navbar ul {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+/* ========================================
+   LANDING PAGE - Hero Section
+   ======================================== */
+
+.landing {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.landing-content {
+    max-width: 800px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.landing-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -2px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 50%, #ec4899 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientShift 5s ease infinite;
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.landing-subtitle {
+    font-size: 1.35rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.landing-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.btn-large {
+    padding: 1.1rem 2.5rem;
+    font-size: 1.1rem;
+    border-radius: 14px;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--glass-border);
+    box-shadow: none;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary);
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
+}
+
+.landing-features {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .landing-title {
+        font-size: 2.8rem;
+        letter-spacing: -1px;
+    }
+
+    .landing-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .landing-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-large {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .landing-features {
+        gap: 1.5rem;
+    }
+}
+
+/* ========================================
+   SELECTION STYLE
+   ======================================== */
+
+::selection {
+    background: rgba(124, 58, 237, 0.4);
+    color: white;
+}
